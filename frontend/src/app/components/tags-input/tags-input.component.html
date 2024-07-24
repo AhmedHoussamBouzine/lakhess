@@ -1,0 +1,37 @@
+<div>
+  @if (label) {
+    <label [for]="_id" class="block mb-2 text-sm font-medium">
+      {{ label }}
+    </label>
+  }
+  <div
+    class="flex flex-wrap items-center border border-gray-300 rounded-md py-1 px-2 bg-white"
+  >
+    @for (tag of tags; track tag; let index = $index) {
+      <div>
+        <span
+          class="inline-flex items-center px-2 py-1 me-2 text-sm font-medium text-gray-700 bg-gray-100 rounded"
+        >
+          {{ tag }}
+          <button
+            type="button"
+            class="inline-flex items-center p-1 ms-2 text-sm text-gray-500 bg-transparent"
+            (click)="removeTag(index)"
+          >
+            <i class="ri-close-line"></i>
+            <span class="sr-only">Remove badge</span>
+          </button>
+        </span>
+      </div>
+    }
+    <input
+      type="text"
+      [id]="_id"
+      [(ngModel)]="inputTagValue"
+      class="border-none px-2 focus:ring-transparent bg-transparent w-full text-sm p-2.5"
+      (keydown.enter)="addTag()"
+      (keydown.backspace)="removeLastTag()"
+      [placeholder]="placeholder"
+    />
+  </div>
+</div>
