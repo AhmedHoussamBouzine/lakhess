@@ -1,1 +1,31 @@
-<p>main works!</p>
+<div class="my-10 md:w-1/2 mx-auto">
+  <div class="p-8 space-y-4">
+    <form class="space-y-4 md:space-y-6" (ngSubmit)="handleSubmit()">
+      <h2 class="text-center font-sans font-bold text-3xl my-4">Paste a Link below !</h2>
+      <app-input input="text" postIcon="ri-search-line" name="videolink" inputId="videolink" placeholder=""
+        [required]="true" [(ngModel)]="videolink" containerClass="mb-4" />
+      <app-button type="submit" [disabled]="buttonsDisabled" class="my-2 mx-auto">
+        @if (buttonsDisabled) {
+        <div class="animate-spin">
+          <i class="ri-loader-4-line"></i>
+        </div>
+        } @else {
+        LAKHESS
+        }
+      </app-button>
+    </form>
+  </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mb-8 items-stretch">
+  <div class="flex flex-col items-center">
+    <h3 class="font-sans font-bold my-2">S2T + SUMMARY</h3>
+    <img src="assets/summary.svg" class="border border-gray-400 w-64 rounded-3xl" alt="summary">
+  </div>
+  <div class="flex flex-col justify-center items-center min-h-[35vh]">
+    <img src="assets/text.svg" class="w-64" alt="summary">
+  </div>
+  <div class="flex flex-col items-center">
+    <h3 class="font-sans font-bold my-2">MINDMAP</h3>
+    <img src="assets/mindmap.png" class="border border-gray-400 w-64 rounded-3xl" alt="summary">
+  </div>
+</div>
