@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import "remixicon/fonts/remixicon.css";
+@import "ngx-toastr/toastr";
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("../public/fonts/google-sans.woff2") format("woff2");
+}
+
+body {
+  @apply bg-gray-100 text-gray-700 font-sans;
+}
