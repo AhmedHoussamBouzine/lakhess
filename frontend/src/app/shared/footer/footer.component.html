@@ -1,22 +1,16 @@
 <footer class="bg-black w-full">
   <div class="bg-gray-900">
-    <div
-      class="max-w-screen-xl flex flex-wrap items-center justify-between container py-10"
-    >
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between container py-10">
       <a routerLink="/" class="flex items-center space-x-3">
-        <span class="font-sans font-bold text-2xl text-white">LAKHESS</span>
+        <img src="assets/logo.png" class="h-16" alt="logo">
       </a>
       <ul class="flex items-center space-x-4 flex-wrap text-gray-400">
         @for (link of links; track $index) {
-          <li>
-            <a
-              [routerLink]="link.path"
-              class="hover:text-white"
-              aria-current="page"
-            >
-              {{ link.label }}
-            </a>
-          </li>
+        <li>
+          <a [routerLink]="link.path" class="hover:text-white" aria-current="page">
+            {{ link.label }}
+          </a>
+        </li>
         }
       </ul>
     </div>
