@@ -1,4 +1,4 @@
-from flask import Flask,jsonify
+from flask import Flask,jsonify, request
 from flask_cors import CORS  
 import logging
 import yt_dlp
@@ -28,11 +28,19 @@ ydl_opts = {
     }],
 }
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 def get():
     try:
+        data = request.get_json()
+        
+        link = data.get('link')
+        
+        if not link:
+            return jsonify({'error': 'No link provided'}), 400
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([url])
+            ydl.download([link])
+            
+        
         return jsonify({'status': 'true'}), 200
 
     except Exception as e:
