@@ -1,0 +1,35 @@
+# Virtual environment
+venv/
+*.egg-info/
+*.egg
+
+uploads/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Flask specific
+instance/
+.env
+*.sqlite3
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Miscellaneous
+*.log
+*.tmp
+*.bak
