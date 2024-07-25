@@ -1,5 +1,6 @@
 # LAKHESS
 <img src="./frontend/public/assets/logo.png" alt="SoliFood log" style="height: 50px">
+
 ## Overview
 
 Tired of spending hours binge-watching YouTube study videos assigned by your professors or seeking out videos yourself to reinforce class material? We understand how exhausting it can be!
