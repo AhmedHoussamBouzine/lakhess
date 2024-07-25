@@ -11,11 +11,12 @@ export class ApiService {
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
-  videoToMindMap(link: string) {
+  videoToMindMap(link: string){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post<any>(`${this.apiUrl}`, { link: link }, { headers: headers });
+    return this.http.post<any>(`${this.apiUrl}`, { link: link });
   }
+
 
 }
