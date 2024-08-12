@@ -8,7 +8,8 @@ import whisper
 from huggingface_hub import InferenceClient
 import json
 from graphviz import Digraph
-
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -42,7 +43,11 @@ def transcribe_audio_whisper(audio_file_path):
 
 
 # Function to summarize text using LLaMA
-def summarize_text_llama(text, model_name="meta-llama/Meta-Llama-3-8B-Instruct", token="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"):
+def summarize_text_llama(text, model_name="meta-llama/Meta-Llama-3-8B-Instruct"):
+    token = os.getenv('HF_TOKEN')
+    if not token:
+        raise ValueError("HF_TOKEN not found in environment variables")
+
     client = InferenceClient(model=model_name, token=token)
     prompt = (
         "Summarize the following text by identifying key points and providing a title and a brief resume for each key point in JSON format. "
@@ -116,11 +121,6 @@ def get():
             key_node = f"{point['key']}\n({point['resume']})"
             dot.node(key_node, shape='box', style='filled', fillcolor='lightyellow', fontsize='10')
             dot.edge(data['main_topic'], key_node)
-
-        # Render the graph to a file (e.g., PNG format)
-        dot.render('mindmap', format='png', cleanup=True)
-
-        print("Mind map generated and saved as 'mindmap.png'.")
 
         # Add key points nodes
         for point in data['key_points']:

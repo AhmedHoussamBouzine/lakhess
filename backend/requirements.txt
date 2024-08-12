@@ -2,3 +2,6 @@ Flask
 Flask-Cors
 yt-dlp
 moviepy
+openai-whisper
+huggingface-hub
+graphviz
